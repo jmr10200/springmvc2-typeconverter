@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${form}" th:method="post">
+    th:field <input type="text" th:field="*{ipPort}"><br/>
+    <!-- th:field="*{ipPort}" 는 컨버터도 자동으로 적용해준다. -->
+    th:value <input type="text" th:value="*{ipPort}">(보여주기 용도)<br/>
+    <!-- th:value="*{ipPort}" 는 컨버터를 자동으로 적용하지 않는다. -->
+    <input type="submit"/>
+    <!-- 제출하면 POST /convert/edit 으로 @ModelAttribute 사용해서 String 이 IpPort로 변환된다. -->
+</form>
+</body>
+</html>

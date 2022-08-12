@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <!-- 변수 표현식 : ${...} -->
+    <li>${number}: <span th:text="${number}" ></span></li>
+    <!-- 컨버전 서비스 적용 : ${{...}} -->
+    <li>${{number}}: <span th:text="${{number}}" ></span></li>
+    <!-- ${{number}}: 뷰 템플릿은 데이터를 문자로 출력한다.
+         따라서 컨버터를 적용하면 IntegerToStringConverter 가 동작한다.
+         컨버터를 실행하지 않아도(${...}) 타입리프가 숫자를 문자로 자동으로 변환하여 결과가 동일하다. -->
+    <li>${ipPort}: <span th:text="${ipPort}" ></span></li>
+    <li>${{ipPort}}: <span th:text="${{ipPort}}" ></span></li>
+    <!-- ${{ipPort}}: 뷰 템플릿은 데이터를 문자로 출력한다.
+         따라서 컨버터를 적용하면 IpPortToStringConverter 가 동작한다. -->
+</ul>
+</body>
+</html>
+<!--
+타임리프는 ${{...}} 를 사용하면 자동으로 컨버전 서비스를 사용해서 변환된 결과 출력
+스프링과 통합되어 스프링이 제공하는 컨버전서비스를 사용하므로 직접 등록한 컨버터를 사용할 수 있다.
+-->
