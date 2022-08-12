@@ -34,3 +34,15 @@ public class HelloController {
 // @Value 등으로 YML 정보 읽기
 // XML 에 넣은 스프링 빈 정보를 변환
 // 뷰 렌더링
+
+// Boolean 타입을 숫자로 변경하는등 여러 타입 변환을 지원한다.
+/* 타입 컨버터 Converter */
+// org.springFramework.core.convert.converter.Converter
+// 새 타입을 만들어 변환하고 싶을때는 컨버터 인터페이스를 사용한다.
+// 컨버터 인터페이스를 구현해서 등록하면 된다.
+// A -> B 타입 변환, B -> A 타입 변환 각각 만들어 등록하면 된다.
+
+// 참고
+// 과거에는 PropertyEditor 라는 것으로 타입변환했다.
+// PropertyEditor 는 동시성 문제가 있어서 변환시마다 객체를 새로 생성해야 하는 단점이 있다.
+// 지금은 Converter 로 해당 문제가 해결됐고, 기능확장이 필요하면 Converter 를 사용하면 된다.
