@@ -39,6 +39,6 @@ class ConverterTest {
         assertThat(result).isEqualTo("127.0.0.2:8080");
     }
 
-
-
+// 이렇게 타입 컨버터를 하나하나 직접 찾아서 타입변환에 사용하는 것은 번거롭다.
+// 그래서 스프링은 개별 컨버터를 모아두고 사용할수 있는 기능을 제공하는데, ConversionService 이다.
 }
