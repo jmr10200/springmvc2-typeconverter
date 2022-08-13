@@ -4,6 +4,7 @@ import hello.typeconverter.converter.IntegerToStringConverter;
 import hello.typeconverter.converter.IpPortToStringConverter;
 import hello.typeconverter.converter.StringToIntegerConverter;
 import hello.typeconverter.converter.StringToIpPortConverter;
+import hello.typeconverter.formatter.MyNumberFormatter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -14,10 +15,15 @@ public class WebConfig implements WebMvcConfigurer {
     // 스프링에 컨버터 등록하기
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToIntegerConverter());
-        registry.addConverter(new IntegerToStringConverter());
+        // 포맷터를 웹 어플리케이션에 적용하기 위해 주석처리 (우선순위, 컨버터가 우선하므로)
+//        registry.addConverter(new StringToIntegerConverter());
+//        registry.addConverter(new IntegerToStringConverter());
         registry.addConverter(new StringToIpPortConverter());
         registry.addConverter(new IpPortToStringConverter());
+
+        // 포맷터 추가
+        registry.addFormatter(new MyNumberFormatter());
+
         // 스프링은 내부에서 ConversionService 를 제공한다.
         // WebMvcConfigurer 가 제공하는 addFormatters() 를 이용해서 컨버터를 등록한다.
 
